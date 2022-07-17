@@ -9,25 +9,25 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="350.0" minWidth="500.0" prefHeight="418.0" prefWidth="611.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="418.0" prefWidth="611.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BoardController">
    <children>
       <Label layoutX="216.0" layoutY="21.0" prefHeight="50.0" prefWidth="180.0" text="TIC-TAC-TOE">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Button fx:id="newGame" layoutX="190.0" layoutY="366.0" mnemonicParsing="false" text="New Game" />
-      <Button fx:id="quit" layoutX="347.0" layoutY="366.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Quit" />
+      <Button fx:id="newGame" layoutX="190.0" layoutY="366.0" mnemonicParsing="false" text="New Game" onAction="#newGame"/>
+      <Button fx:id="btnquit" layoutX="347.0" layoutY="366.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Quit"  onAction="#quit"/>
       <GridPane layoutX="180.0" layoutY="74.0" prefHeight="240.0" prefWidth="267.0">
         <columnConstraints>
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="73.33333333333333" minHeight="10.0" prefHeight="73.33333333333333" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="82.66666666666667" minHeight="0.0" prefHeight="48.000010172526046" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="85.33333333333334" minHeight="0.0" prefHeight="59.99998982747397" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="73.33333333333333" minHeight="10.0" prefHeight="73.33333333333333" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="82.66666666666667" minHeight="0.0" prefHeight="48.000010172526046" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="85.33333333333334" minHeight="0.0" prefHeight="59.99998982747397" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
             <Button fx:id="btn1" mnemonicParsing="false" onAction="#updateBoard" prefHeight="84.8" prefWidth="94.5" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">

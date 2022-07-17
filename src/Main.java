@@ -9,6 +9,8 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Board.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("TicTacToe");
+        stage.setMinHeight(400);
+        stage.setMinWidth(550);
         stage.setScene(scene);
         stage.show();
     }
