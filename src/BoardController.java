@@ -38,8 +38,8 @@ public class BoardController implements Initializable{
     private Button btnquit;
 
     // PLAYER KEEPS TRACK OF MOVES
-    //HAVING AN ARRAYLIST OF BUTTONS ALLOWS ME TO EAISLY CHANGE VALUES 
-    //FOR A BUTTON WITHOUT HAVING TO MANUALLY CHANGE EACH BUTTON
+    /*HAVING AN ARRAYLIST OF BUTTONS ALLOWS ME TO EAISLY CHANGE VALUES 
+    FOR A BUTTON WITHOUT HAVING TO MANUALLY CHANGE EACH BUTTON */
     int player;
     private ArrayList<Button> btns = new ArrayList (9);
     
