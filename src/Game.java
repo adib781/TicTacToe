@@ -1,14 +1,30 @@
 
 public class Game {
-    int player = 0; //USED TO STORE NUMBER OF MOVES MADE BY PLAYERs
-    boolean check = false; //STORES TRUE OR FALSE FOR METHODS CHECKING WHETHER WIN OR TIE
+    private int player = 0; //USED TO STORE NUMBER OF MOVES MADE BY PLAYERs
+    private boolean check = false; //STORES TRUE OR FALSE FOR METHODS CHECKING WHETHER WIN OR TIE
 
-    String[][] board = new String[3][3]; //CREATES THE 3X3 GAME BOARD FOR PROCESSING DATA
+    private String[][] board = new String[3][3]; //CREATES THE 3X3 GAME BOARD FOR PROCESSING DATA
 
     public Game() {} //DEFAULT GAME CONSTRUCTOR
 
     public Game(int player, String[][] board) { //GAME CONSTRUCTOR
         this.player = player;
+        this.board = board;
+    }
+
+    public int getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(int player) {
+        this.player = player;
+    }
+
+    public String[][] getBoard() {
+        return board;
+    }
+
+    public void setBoard(String[][] board) {
         this.board = board;
     }
 
