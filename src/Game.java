@@ -20,6 +20,14 @@ public class Game {
         this.player = player;
     }
 
+    public boolean getCheck() {
+        return check;
+    }
+
+    public void setCheck(boolean check) {
+        this.check = check;
+    }
+
     public String[][] getBoard() {
         return board;
     }
