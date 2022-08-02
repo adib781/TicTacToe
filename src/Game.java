@@ -81,4 +81,9 @@ public class Game {
 
         return check;
     }
+
+    public void newGame(){
+        setCheck(false);
+        setPlayer(0);
+    }
 }
