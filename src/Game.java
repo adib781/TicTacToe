@@ -36,18 +36,31 @@ public class Game {
         this.board = board;
     }
 
-    public boolean checkWin(String[][] board) { //CHECKS IF ANY PLAYER HAS A WINNING COMBINATION
+    public boolean checkWin() { //CHECKS IF ANY PLAYER HAS A WINNING COMBINATION
         for (int i = 0; i < board.length; i++) {
-            if (board[i][0] == board[i][1] && board[i][1] == board[i][2]) { //HORIZONTAL WIN
-                check = true;
+            if(!board[i][0].isEmpty()){
+                if (board[i][0] == board[i][1] && board[i][1] == board[i][2]) { //HORIZONTAL WIN
+                    check = true;
+                }
             }
-            if (board[0][i] == board[1][i] && board[1][i] == board[2][i]) { //VERTICAL WIN
-                check = true;
+            if(!board[0][i].isEmpty()){
+                if (board[0][i] == board[1][i] && board[1][i] == board[2][i]) { //VERTICAL WIN
+                    check = true;
+                }
             }
-            if ((board[0][0] == board[1][1] && board[1][1] == board[2][2]) || (board[0][2] == board[1][1] && board[1][1] == board[2][0])) { //DIAGONAL WIN
+        }
+
+        if(!board[0][0].isEmpty()){
+            if (board[0][0] == board[1][1] && board[1][1] == board[2][2]) { //DIAGONAL WIN
                 check = true;
             }
         }
+        if(!board[0][2].isEmpty()){ 
+            if(board[0][2] == board[1][1] && board[1][1] == board[2][0]){
+                check = true;
+            }
+        }
+
         return check;
     }
 
