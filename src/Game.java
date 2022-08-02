@@ -64,16 +64,21 @@ public class Game {
         return check;
     }
 
-    public boolean checkTie(String[][] board) { //CHECKS IF THE GAME BOARD IS FULL
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
-                if (board[i][j] == null) {
-                    check = false;
-                } else {
-                    check = true;
+    public boolean checkTie() { //CHECKS IF THE GAME BOARD IS FULL
+        if(!checkWin()){
+            for (int i = 0; i < board.length; i++) {
+                for (int j = 0; j < board[0].length; j++) {
+                    if (board[i][j] == "") {
+                        return false;
+                    }
                 }
             }
+            setCheck(true);
         }
+        else{
+            setCheck(false);
+        }
+
         return check;
     }
 }
