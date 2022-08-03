@@ -48,6 +48,7 @@ public class BoardController implements Initializable{
     private ArrayList<Button> btns = new ArrayList (9);
     private String[][] board = new String [3][3];
     private Game g = new Game(player, board);
+    private String winner;
     
     
     //DEFAULT METHOD IN CONTROLLER
@@ -125,10 +126,31 @@ public class BoardController implements Initializable{
         }
             
         else if(g.checkWin()){
-            newWindow();
+            Button button = (Button) event.getSource();
+            if(button.getText().equals("X")){
+                winner = "X Wins";
+            }
+            else if(button.getText().equals("O")){
+                winner = "O Wins";
+            }
+            try {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("Popup.fxml"));
+                Parent root = (Parent) loader.load(); 
+                PopupController controller = loader.getController();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setTitle("Who Won?");
+                stage.setScene(scene);
+                stage.show();
+                controller.setLabel(winner);
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        
     }
+        
 
     private void newWindow(){
         Parent root;
