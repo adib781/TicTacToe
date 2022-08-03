@@ -107,6 +107,7 @@ public class BoardController implements Initializable{
 
 
         if(g.checkTie()){
+            winner = "It's a Tie";
             
             try {
                 FXMLLoader loader = new FXMLLoader();
@@ -118,7 +119,7 @@ public class BoardController implements Initializable{
                 stage.setTitle("Who Won?");
                 stage.setScene(scene);
                 stage.show();
-                controller.setLabel("It's a tie");
+                controller.setLabel(winner);
                 
             } catch (IOException e) {
                 e.printStackTrace();
