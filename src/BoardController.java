@@ -151,22 +151,6 @@ public class BoardController implements Initializable{
         }
     }
         
-
-    private void newWindow(){
-        Parent root;
-            try {
-                root = FXMLLoader.load(getClass().getResource("Popup.fxml"));
-                Stage stage = new Stage();
-                Scene scene = new Scene(root);
-                stage.setTitle("Who Won?");
-                stage.setScene(scene);
-                stage.show();
-                
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-    }
-
     private void updateArray(){
         for(int i = 0; i < btns.size(); i++){
             for(int j = 0; j < board.length; j++){
