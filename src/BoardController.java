@@ -108,22 +108,7 @@ public class BoardController implements Initializable{
 
         if(g.checkTie()){
             winner = "It's a Tie";
-            
-            try {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("Popup.fxml"));
-                Parent root = (Parent) loader.load(); 
-                PopupController controller = loader.getController();
-                Stage stage = new Stage();
-                Scene scene = new Scene(root);
-                stage.setTitle("Who Won?");
-                stage.setScene(scene);
-                stage.show();
-                controller.setLabel(winner);
-                
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            newWindow(winner);
         }
             
         else if(g.checkWin()){
@@ -134,21 +119,7 @@ public class BoardController implements Initializable{
             else if(button.getText().equals("O")){
                 winner = "O Wins";
             }
-            try {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("Popup.fxml"));
-                Parent root = (Parent) loader.load(); 
-                PopupController controller = loader.getController();
-                Stage stage = new Stage();
-                Scene scene = new Scene(root);
-                stage.setTitle("Who Won?");
-                stage.setScene(scene);
-                stage.show();
-                controller.setLabel(winner);
-                
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            newWindow(winner);
         }
     }
 
