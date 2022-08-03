@@ -17,6 +17,9 @@ public class Game {
     }
 
     public void setPlayer(int player) {
+        if (player != (int)player) {
+            throw new IllegalArgumentException("Player must be an integer.");
+        }
         this.player = player;
     }
 
@@ -25,6 +28,9 @@ public class Game {
     }
 
     public void setCheck(boolean check) {
+        if (check != (boolean)check) {
+            throw new IllegalArgumentException("Check must be a boolean value.");
+        }
         this.check = check;
     }
 
