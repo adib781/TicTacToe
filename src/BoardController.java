@@ -151,6 +151,24 @@ public class BoardController implements Initializable{
             }
         }
     }
+
+    public void newWindow(String s){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("Popup.fxml"));
+            Parent root = (Parent) loader.load(); 
+            PopupController controller = loader.getController();
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setTitle("Who Won?");
+            stage.setScene(scene);
+            stage.show();
+            controller.setLabel(s);
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
         
     private void updateArray(){
         for(int i = 0; i < btns.size(); i++){
