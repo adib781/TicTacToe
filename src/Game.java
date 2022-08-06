@@ -1,4 +1,3 @@
-
 public class Game {
     private int player = 0; //USED TO STORE NUMBER OF MOVES MADE BY PLAYERs
     private boolean check = false; //STORES TRUE OR FALSE FOR METHODS CHECKING WHETHER WIN OR TIE

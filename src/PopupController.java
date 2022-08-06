@@ -1,3 +1,4 @@
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -25,6 +26,10 @@ public class PopupController implements Initializable {
         lbl1.setText(s);
     }
 
+   /*  @FXML
+     public void setText(File file){ //not finished, just trying to see what works
+        txtdetail.setText(file); 
+    } */
     
     
 }

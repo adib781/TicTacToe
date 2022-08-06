@@ -1,8 +1,14 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,6 +55,8 @@ public class BoardController implements Initializable{
     private String[][] board = new String [3][3];
     private Game g = new Game(player, board);
     private String winner;
+    private File file = new File("summary.txt");
+    
     
     
     //DEFAULT METHOD IN CONTROLLER
@@ -59,14 +67,17 @@ public class BoardController implements Initializable{
 
     //CLOSES PROGRAM WHEN QUIT BUTTON IS CLICKED
     @FXML
-    public void quit(ActionEvent event) {
+    public void quit(ActionEvent event) throws FileNotFoundException {
+        PrintWriter fileOut = new PrintWriter(file);
+        fileOut.print("");
+        fileOut.flush();
         Stage stage = (Stage) btnquit.getScene().getWindow();
         stage.close();
     }
 
     //RELOADS THE BOARD
     @FXML
-    public void newGame(ActionEvent event){
+    public void newGame(ActionEvent event) throws FileNotFoundException{
 
         for(int i = 0; i < btns.size(); i++){
             btns.get(i).setText("");
@@ -74,7 +85,9 @@ public class BoardController implements Initializable{
             btns.get(i).setStyle(null);
             updateArray();
         }
-    
+        PrintWriter fileOut = new PrintWriter(file);
+        fileOut.print("");
+        fileOut.flush();
         g.newGame();
     }
 
@@ -83,7 +96,7 @@ public class BoardController implements Initializable{
     //getSource() checks which button was clicked on the board
     //we then which button it was in our arraylist
     @FXML
-    public void updateBoard(ActionEvent event){
+    public void updateBoard(ActionEvent event) throws IOException{
 
         for(int i = 0; i< btns.size(); i++){
             btns.get(i).setFont(new Font(26));
@@ -104,6 +117,7 @@ public class BoardController implements Initializable{
         }
         player++;
         updateArray();
+        summary(event);
 
 
         if(g.checkTie()){
@@ -165,6 +179,26 @@ public class BoardController implements Initializable{
                         board[2][2] = btn9.getText();
                 }
             }
+        }
+    }
+
+    private void summary(ActionEvent event) throws IOException {
+        try {
+            PrintWriter fileOut = new PrintWriter(new BufferedWriter(new FileWriter(file, true)));
+            Button button = (Button) event.getSource();
+            char num = button.getId().charAt(3);
+        
+            if (player % 2 == 0) {
+                fileOut.println("Move "+(player)+": Player 2 put an O on button "+num+"\n");
+                fileOut.flush();
+            }
+            else {
+                fileOut.println("Move "+(player)+": Player 1 put an X on button "+num+"\n");
+                fileOut.flush();
+            }
+        }
+        catch (IOException ex) {
+            System.out.println(ex);
         }
     }
 
