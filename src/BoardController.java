@@ -182,7 +182,7 @@ public class BoardController implements Initializable{
         }
     }
 
-    private void summary(ActionEvent event) throws IOException {
+    private void summary(ActionEvent event) throws IOException { //executes everytime a button is clicked.
         try {
             PrintWriter fileOut = new PrintWriter(new BufferedWriter(new FileWriter(file, true)));
             Button button = (Button) event.getSource();
