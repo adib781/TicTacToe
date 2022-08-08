@@ -149,6 +149,8 @@ public class BoardController implements Initializable{
             stage.setScene(scene);
             stage.show();
             controller.setLabel(s);
+            controller.setText(file);
+
             
         } catch (IOException e) {
             e.printStackTrace();

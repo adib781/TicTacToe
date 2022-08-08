@@ -1,7 +1,8 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import java.util.Scanner;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -26,10 +27,21 @@ public class PopupController implements Initializable {
         lbl1.setText(s);
     }
 
-   /*  @FXML
-     public void setText(File file){ //not finished, just trying to see what works
-        txtdetail.setText(file); 
-    } */
+    @FXML
+    public void setText(File file) throws FileNotFoundException{ //sets text for text area
+
+        if (file.exists()) {
+            Scanner scan = new Scanner(file);
+            scan.useDelimiter(System.getProperty("line.separator"));
+
+            while(scan.hasNext()) {
+                String str = scan.nextLine();
+                txtdetail.appendText(str+"\n");
+
+            }
+            scan.close();
+        }
+    } 
     
     
 }

@@ -1,0 +1,10 @@
+Move 1: Player 1 put an X on button 7
+
+Move 2: Player 2 put an O on button 1
+
+Move 3: Player 1 put an X on button 5
+
+Move 4: Player 2 put an O on button 8
+
+Move 5: Player 1 put an X on button 3
+
